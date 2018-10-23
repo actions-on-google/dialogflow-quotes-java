@@ -1,0 +1,29 @@
+{
+  "fulfillmentText": "Quotes from Developer Relations Googlers",
+  "outputContexts": [
+    {
+      "lifespanCount": 99,
+      "name": "projects/df-project-name/agent/sessions/some-response-id/contexts/_actions_on_google",
+      "parameters": {
+        "data": "{}"
+      }
+    }
+  ],
+  "payload": {
+    "google": {
+      "expectUserResponse": false,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "displayText": "Quotes from Developer Relations Googlers",
+              "textToSpeech": "Sachit Mishra, from Google Developer Relations once said... It wasn't me."
+            }
+          }
+        ]
+      },
+      "isSsml": false,
+      "userStorage": "{\"data\":{}}"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "responseId": "some-response-id",
+  "queryResult": {
+    "queryText": "welcome",
+    "action": "input.welcome",
+    "parameters": {},
+    "allRequiredParamsPresent": true,
+    "intent": {
+      "name": "projects/df-project-name/agent/intents/some-id",
+      "displayName": "Default Welcome Intent"
+    },
+    "intentDetectionConfidence": 1,
+    "diagnosticInfo": {},
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "payload": {
+      "surface": {
+        "capabilities": [
+          {
+            "name": "actions.capability.SCREEN_OUTPUT"
+          },
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          },
+          {
+            "name": "actions.capability.WEB_BROWSER"
+          },
+          {
+            "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+          }
+        ]
+      }
+    }
+  },
+  "session": "projects/df-project-name/agent/sessions/some-response-id"
+}

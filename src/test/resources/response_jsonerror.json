@@ -1,0 +1,28 @@
+{
+  "fulfillmentText": "I'm sorry, I can't remember any quotes right now! Try again soon.",
+  "outputContexts": [
+    {
+      "lifespanCount": 99,
+      "name": "projects/df-project-name/agent/sessions/some-response-id/contexts/_actions_on_google",
+      "parameters": {
+        "data": "{}"
+      }
+    }
+  ],
+  "payload": {
+    "google": {
+      "expectUserResponse": false,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "I'm sorry, I can't remember any quotes right now! Try again soon."
+            }
+          }
+        ]
+      },
+      "isSsml": false,
+      "userStorage": "{\"data\":{}}"
+    }
+  }
+}
