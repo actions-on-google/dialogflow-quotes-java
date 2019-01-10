@@ -20,10 +20,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import org.junit.Assert;
-import org.junit.Test;
-import org.mockito.Mockito;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,20 +29,23 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.CompletableFuture;
-
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
 
 public class DevRelQuotesAppTest {
 
   private static String fromFile(String fileName) throws IOException {
-    Path absolutePath = Paths.get("src", "test", "resources",
-        fileName);
+    Path absolutePath = Paths.get("src", "test", "resources", fileName);
 
     return new String(Files.readAllBytes(absolutePath));
   }
 
-  //Pretty-prints response JSON so we can compare it with our pretty-printed sample output in a human-readable way
+  // Pretty-prints response JSON so we can compare it with our pretty-printed sample output in a
+  // human-readable way
   private static String prettyPrintJson(String jsonInput) {
-    Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+    Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping()
+        .create();
     JsonParser parser = new JsonParser();
     JsonElement element = parser.parse(jsonInput);
 
@@ -76,15 +75,16 @@ public class DevRelQuotesAppTest {
     DevRelQuotesApp app = new DevRelQuotesApp(mockUrl);
     String requestBody = fromFile("request_welcome.json");
 
-    CompletableFuture<String> future = app.handleRequest(requestBody,
-        null /* headers */);
+    CompletableFuture<String> future = app
+        .handleRequest(requestBody, null /* headers */);
 
     String responseJson = future.get();
     String prettyJsonResponse = prettyPrintJson(responseJson);
 
     String expectedResponse = fromFile("response_welcome.json");
 
-    Assert.assertEquals("Response was not as expected", expectedResponse, prettyJsonResponse);
+    Assert.assertEquals("Response was not as expected", expectedResponse,
+        prettyJsonResponse);
   }
 
   // Tests that we correctly handle the presence of the SCREEN capability
@@ -97,15 +97,16 @@ public class DevRelQuotesAppTest {
     DevRelQuotesApp app = new DevRelQuotesApp(mockUrl);
     String requestBody = fromFile("request_welcome_screen.json");
 
-    CompletableFuture<String> future = app.handleRequest(requestBody,
-        null /* headers */);
+    CompletableFuture<String> future = app
+        .handleRequest(requestBody, null /* headers */);
 
     String responseJson = future.get();
     String prettyJsonResponse = prettyPrintJson(responseJson);
 
     String expectedResponse = fromFile("response_welcome_screen.json");
 
-    Assert.assertEquals("Response was not as expected", expectedResponse, prettyJsonResponse);
+    Assert.assertEquals("Response was not as expected", expectedResponse,
+        prettyJsonResponse);
   }
 
   // Tests the handling of an IOException (could be caused by network issues)
@@ -123,15 +124,16 @@ public class DevRelQuotesAppTest {
     DevRelQuotesApp app = new DevRelQuotesApp(mockUrl);
     String requestBody = fromFile("request_welcome.json");
 
-    CompletableFuture<String> future = app.handleRequest(requestBody,
-        null /* headers */);
+    CompletableFuture<String> future = app
+        .handleRequest(requestBody, null /* headers */);
 
     String responseJson = future.get();
     String prettyJsonResponse = prettyPrintJson(responseJson);
 
     String expectedResponse = fromFile("response_networkerror.json");
 
-    Assert.assertEquals("Response was not as expected", expectedResponse, prettyJsonResponse);
+    Assert.assertEquals("Response was not as expected", expectedResponse,
+        prettyJsonResponse);
   }
 
   // Tests that we handle an unexpected response from the HTTP fetch
@@ -148,15 +150,15 @@ public class DevRelQuotesAppTest {
     DevRelQuotesApp app = new DevRelQuotesApp(mockUrl);
     String requestBody = fromFile("request_welcome.json");
 
-    CompletableFuture<String> future = app.handleRequest(requestBody,
-        null /* headers */);
+    CompletableFuture<String> future = app
+        .handleRequest(requestBody, null /* headers */);
 
     String responseJson = future.get();
     String prettyJsonResponse = prettyPrintJson(responseJson);
 
     String expectedResponse = fromFile("response_jsonerror.json");
 
-    Assert.assertEquals("Response was not as expected", expectedResponse, prettyJsonResponse);
+    Assert.assertEquals("Response was not as expected", expectedResponse,
+        prettyJsonResponse);
   }
-
 }
