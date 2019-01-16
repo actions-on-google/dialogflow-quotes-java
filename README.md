@@ -1,7 +1,7 @@
-# Actions on Google: Developer Relations Quotes sample using Java
+# Actions on Google: Developer Relations Quotes Sample
 
 This sample shows an app for the Google Assistant using Actions on Google that provides the user with a random quote
-from a Developer Relations Googler by fetching data via an HTTP request to an external URL.
+from a Developer Relations Googler by fetching data via an HTTP request to an external URL using Java.
 
 ### Setup Instructions
 
