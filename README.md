@@ -2,6 +2,10 @@
 
 This sample demonstrates Actions on Google features for use on Google Assistant alongside promises, external API calls, and rich responses (Basic Card) -- using the [Java client library](https://github.com/actions-on-google/actions-on-google-java) and deployed on [App Engine](https://cloud.google.com/appengine/docs/standard/java/quickstart).
 
+### Enable Billing
+**Required for running this sample**
+This sample uses Firebase Cloud Functions to make an HTTP request to a non-Google service. The free Firebase Spark Plan only allows outbound network calls to Google services. If you plan to run the sample, you will need to temporarily upgrade to a Firebase plan that allows for outbound networking, such as the [Blaze Plan](https://firebase.google.com/pricing/), also called Pay as you go.
+
 ### Setup Instructions
 ### Prerequisites
 1. Download & install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/)
